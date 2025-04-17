@@ -1,6 +1,6 @@
 package com.phgr.java_spring_boot_srv.endpoint;
 
-import com.phgr.java_spring_boot_srv.domain.dto.ProductDTO;
+import com.phgr.java_spring_boot_srv.domain.Product;
 import com.phgr.java_spring_boot_srv.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +17,17 @@ public class ProductController {
         private ProductService service;
 
         @PostMapping
-        public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO productDTO){
-            return ResponseEntity.ok(service.createProduct(productDTO));
+        public ResponseEntity<Product> create(@RequestBody Product product){
+            return ResponseEntity.ok(service.createProduct(product));
         }
 
         @GetMapping
-        public ResponseEntity<List<ProductDTO>> getAll(){
+        public ResponseEntity<List<Product>> getAll(){
             return ResponseEntity.ok(service.getAllProducts());
         }
 
         @GetMapping("/{id}")
-        public ResponseEntity<Optional<ProductDTO>> getById(@PathVariable String id){
+        public ResponseEntity<Optional<Product>> getById(@PathVariable String id){
             return ResponseEntity.ok(service.getProductById(id));
         }
 

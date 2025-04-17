@@ -1,4 +1,4 @@
-package com.phgr.java_spring_boot_srv.domain.dto;
+package com.phgr.java_spring_boot_srv.domain;
 
 import lombok.Builder;
 import org.springframework.data.annotation.Id;
@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Builder
 @Document(collection = "products")
-public class ProductDTO {
+public class Product {
 
     @Id
     private String id;
@@ -47,14 +47,14 @@ public class ProductDTO {
         this.price = price;
     }
 
-    public ProductDTO(String id, String name, String description, Double price) {
+    public Product(String id, String name, String description, Double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
     }
 
-    public ProductDTO() {
+    public Product() {
     }
 
     @Override
